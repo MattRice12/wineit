@@ -45,8 +45,7 @@ class UsersController < ApplicationController
 
   def update
     user = User.find(params.fetch(:id))
-    user.update(user_params)
-    if user.save
+    if user.update(user_params)
       redirect_to users
     else
       flash[:alert] = "User could not be updated due to errors."

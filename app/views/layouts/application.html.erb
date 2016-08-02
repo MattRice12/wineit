@@ -9,6 +9,15 @@
   </head>
 
   <body>
+    <div id="flash">
+      <% flash.each do |key, value| -%>
+        <div id="flash_<%= key %>"><%=h value %></div>
+      <% end %>
+    </div>
+    <% if user_logged_in? %>
+      Welcome! <%= current_user.name %>
+    <% else %>
+      <%= link_to "Sign In", sessions_sign_in_path %>
     <%= yield %>
   </body>
 </html>
