@@ -16,5 +16,5 @@ users.each do |name|
 end
 
 wines.each do |wine|
-  Wine.create!(type: wine)
+  Wine.create!(name: wine)
 end
