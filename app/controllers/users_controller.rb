@@ -5,19 +5,17 @@ class UsersController < ApplicationController
 
   def index
     render template: 'users/index.html.erb', locals: {
-      users: User.all,
-      wines: Wine.where(id: :wine_id)
+      users: User.all.includes(userwines: [:wine]),
+      wines: Wine.includes(:userwines).where(id: :wine_id)
     }
   end
 
   def show
-    if User.exists?(params.fetch(:id))
+    User.find_by(id: params.fetch(:id))
+      # binding.pry
       render template: 'users/show.html.erb', locals: {
         user: User.find(params.fetch(:id))
       }
-    else
-      render html: "User Not Found", status: 404
-    end
   end
 
   def new
@@ -43,7 +41,7 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     if user.id == session[:user_id]
       render locals: {
-        user: User.find(params.fetch(:id))
+        user: user
       }
     else
       flash[:alert] = "You cannot edit another user."
@@ -52,20 +50,14 @@ class UsersController < ApplicationController
   end
 
   def update
-    if User.find(params[:id])
-      user = User.find(params[:id])
-      user.username = params[:username]
-      user.password = params[:password]
-      if user.save
-        redirect_to users, notice: 'User was successfully updated.'
-      else
-        flash[:alert] = "User could not be updated due to errors."
-        render template: 'users/edit.html.erb', locals: {
-          user: User.find(params.fetch(:id))
-        }
-      end
+    user = User.find(params[:id])
+    if user.update(user_params)
+        redirect_to users_path, notice: 'User was successfully updated.'
     else
-      flash[:alert] = "Could not find user."
+      flash[:alert] = "User could not be updated due to errors."
+      render template: 'users/edit.html.erb', locals: {
+        user: User.find(params.fetch(:id))
+      }
     end
   end
 
