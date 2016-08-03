@@ -16,5 +16,6 @@ User.create!(username: "jane1", password: "password")
 User.create!(username: "lyanna1", password: "password")
 
 wines.each do |wine|
-  Wine.create!(name: wine, user_id: rand(1..3))
+  Wine.create!(name: wine)
+  Userwine.create!(user_id: rand(1..3), wine_id: wines.index(wine) + 1)
 end

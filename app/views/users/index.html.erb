@@ -6,8 +6,8 @@
     <% users.each do |user| %>
     <li class="blocky-block">
       <div class="name-index"><%= link_to user.username, user %> </div>
-      <% user.wines.each do |wine| %>
-        <%= wine.name %>
+      <% user.userwines.each do |userwine| %>
+        <%= userwine.wine.name %>
       <% end %>
       <small class="edit-delete-block">
         <small><%= link_to "Edit", user, class: "waves-effect waves-light btn edit-btn", method: :put  %></small>
@@ -20,3 +20,6 @@
     </div>
   </ol>
 </div>
+
+
+pull wines from userwines where userwines.wine_id = wines.id AND userwines.user_id = session[:user_id]

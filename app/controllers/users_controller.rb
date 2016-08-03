@@ -6,8 +6,10 @@ class UsersController < ApplicationController
   def index
     render template: 'users/index.html.erb', locals: {
       users: User.all,
-      wines: Wine.all
+      wines: Wine.where(id: :wine_id)
     }
+
+
   end
 
   def show
