@@ -5,7 +5,8 @@ class UsersController < ApplicationController
 
   def index
     render template: 'users/index.html.erb', locals: {
-      users: User.all
+      users: User.all,
+      wines: Wine.all
     }
   end
 
@@ -40,19 +41,23 @@ class UsersController < ApplicationController
 
   def edit
     render locals: {
-      user: User.find(params[:id])
+      user: User.find(params.fetch(:id))
     }
   end
 
   def update
-    user = User.find(params.fetch(:id))
-    if user.update(user_params)
-      redirect_to users
+    if User.find(params.fetch(:id))
+      user = User.find(params.fetch(:id))
+      if user.update(user_params)
+        redirect_to users
+      else
+        flash[:alert] = "User could not be updated due to errors."
+        render template: 'users/edit.html.erb', locals: {
+          user: User.find(params.fetch(:id))
+        }
+      end
     else
-      flash[:alert] = "User could not be updated due to errors."
-      render template: 'users/edit.html.erb', locals: {
-        user: user
-      }
+      flash[:alert] = "Could not find user."
     end
   end
 
@@ -64,6 +69,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:username, :password, :password_confirmation)
+    params.require(:user).permit(:username, :password)
   end
 end

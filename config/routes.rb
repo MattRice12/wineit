@@ -18,6 +18,6 @@ Rails.application.routes.draw do
   delete 'sessions/sign_out', as: 'sign_out'
   post 'sessions/authenticate'
 
-  root 'users#index'
+  root 'wines#index'
 
 end

@@ -51,7 +51,7 @@ gem 'pry-rails'
 gem 'faker'
 gem 'kaminari'
 gem 'bcrypt', '~> 3.1.7'
-gem "bulma-rails", "~> 0.0.28"
+gem 'materialize-sass'
 group :production do
   gem 'rails_12factor'
 end

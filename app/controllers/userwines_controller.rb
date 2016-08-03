@@ -3,6 +3,7 @@ class UserwinesController < ApplicationController
   end
 
   def create
+    Userwine.create!(user_id: params[:user_id], wine_id: params[:wine_id])
   end
 
   def destroy

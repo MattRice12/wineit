@@ -1,15 +1,144 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+
+@import 'materialize';
+
+
+.btn {
+  background: #EBCFC6;
+  width: 150px;
+  padding: .2%;
+  &:hover {
+    background: #914B49;
+  }
+}
+
+
+
+/*********** INDEX ***********/
+.index-row {
+  .main-block {
+    &:hover {
+      background: white;
+    }
+    .blocky-block {
+      padding: 10px;
+      margin: 30px;
+      background: white;
+      border-bottom: 1px solid #F5F8FA;
+      border-right: 1px solid #F5F8FA;
+      box-shadow: 0px 5px 5px rgba(0,0,0,.1);
+      &:hover {
+        background: #F5F8FA;
+      }
+      .name-index {
+        width: 300px;
+        font-size: xx-large;
+        margin-left: 10px;
+      }
+      .edit-delete-block {
+        position: relative;
+        bottom: 5px;
+        .edit-btn {
+          width: 70px;
+          height: 30px;
+          font-size: medium;
+          border: 2px solid white;
+          border-bottom-left-radius: 40px;
+          border-bottom-right-radius: 40px;
+          color: white;
+          padding: 0px;
+          margin: 5px;
+          background: #540106;
+          box-shadow: 0px 5px 5px rgba(.2,0,0,.5);
+          &:hover {
+            background: #92130F;
+          }
+        }
+        .del-btn {
+          width: 80px;
+          height: 30px;
+          font-size: medium;
+          border: 2px solid white;
+          border-bottom-left-radius: 40px;
+          border-bottom-right-radius: 40px;
+          color: black;
+          padding: 0px;
+          margin: 5px;
+          background: #FCF2CA;
+          box-shadow: 0px 5px 5px rgba(.2,0,0,.5);
+          &:hover {
+            background: #E2D9B5;
+          }
+        }
+      }
+    }
+    .wine-list {
+    }
+  }
+}
+
+/*********** INDEX ***********/
+
+/*********** SHOW ***********/
+
+.show-row {
+  .block-show {
+    padding: 10px;
+    margin: 30px;
+    background: white;
+    border-bottom: 1px solid #F5F8FA;
+    border-right: 1px solid #F5F8FA;
+    box-shadow: 0px 5px 5px rgba(0,0,0,.1);
+    .name-block-show {
+      padding-left: 50px;
+      font-size: 200%;
+      .name-show {
+        width: 300px;
+        font-size: xx-large;
+        margin-left: 10px;
+      }
+      .edit-delete-block {
+        position: relative;
+        bottom: 5px;
+        .edit-btn {
+          width: 70px;
+          height: 30px;
+          font-size: medium;
+          border: 2px solid white;
+          border-bottom-left-radius: 40px;
+          border-bottom-right-radius: 40px;
+          color: white;
+          padding: 0px;
+          margin: 5px;
+          background: #540106;
+          box-shadow: 0px 5px 5px rgba(.2,0,0,.5);
+          text-align: center;
+          &:hover {
+            background: #92130F;
+          }
+        }
+        .del-btn {
+          width: 80px;
+          height: 30px;
+          font-size: medium;
+          border: 2px solid white;
+          border-bottom-left-radius: 40px;
+          border-bottom-right-radius: 40px;
+          color: black;
+          padding: 0px;
+          margin: 5px;
+          background: #FCF2CA;
+          box-shadow: 0px 5px 5px rgba(.2,0,0,.5);
+          text-align: center;
+          &:hover {
+            background: #E2D9B5;
+          }
+        }
+      }
+    }
+    .back .btn {
+    }
+  }
+}
+
+
+/*********** SHOW ***********/

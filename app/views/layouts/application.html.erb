@@ -14,11 +14,13 @@
         <div id="flash_<%= key %>"><%=h value %></div>
       <% end %>
     </div>
-    <% if current_user %>
-      Welcome! <%= current_user.username %> | <%= link_to "Logout", '/logout' %>
-    <% else %>
-      <%= link_to "Login", '/login' %> | <%= link_to 'Signup', '/signup' %>
-    <% end %>
-    <%= yield %>
+    <div class="container">
+      <% if current_user %>
+        Welcome! <%= current_user.username %> | <%= link_to "Logout", '/logout' %>
+      <% else %>
+        <%= link_to "Login", '/login' %> | <%= link_to 'Signup', '/signup' %>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>

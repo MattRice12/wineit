@@ -1,5 +1,3 @@
-<!-- app/views/users/new.html.erb -->
-
 <h1>Signup!</h1>
 
 <%= form_for :user, url: '/users' do |f| %>
@@ -9,4 +7,7 @@
   Password Confirmation: <%= f.password_field :password_confirmation %>
   <%= f.submit "Submit" %>
 
+  <div class="back btn">
+    <%= link_to "back", root_path %>
+  </div>
 <% end %>

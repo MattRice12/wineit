@@ -1,0 +1,16 @@
+<div class="row index-row">
+  <div>
+    <%= link_to "see users", users_path, class: "back btn"%>
+  </div>
+  <div class="col s12 main-block">
+    <% wines.each do |wine| %>
+    <div class="blocky-block">
+      <div class="name-index"><%= link_to "#{wine.name}", wine %></div>
+      <small class="edit-delete-block">
+        <small><%= link_to "Edit", wine, class: "waves-effect waves-light btn edit-btn", method: :put  %></small>
+        <small><%= link_to "Delete", wine, class: "waves-effect waves-light btn del-btn", method: :delete  %></small>
+      </small>
+    </div>
+    <% end %>
+  </div>
+</div>
