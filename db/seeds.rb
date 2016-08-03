@@ -7,15 +7,16 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-%w(Matt Rob Kate Ahkeem Dane Justin Karly Jess Bob Bill John Jim Jake January Carl Karl Ken Kyle Derrick)
+users = %w(Matt Rob Kate Ahkeem Dane Justin)
 
 wines = ["Riesling", "Gewürztraminer", "Chardonnay", "Sauvignon blanc", "Shiraz", "Merlot", "Cabernet Sauvignon", "Pinot Noir"]
 
-User.create!(username: "matt1", password: "password")
-User.create!(username: "jane1", password: "password")
-User.create!(username: "lyanna1", password: "password")
+users.each do |name|
+  user = User.new(username: "#{name}1", password: "password")
+  user.save
+end
 
 wines.each do |wine|
   Wine.create!(name: wine)
-  Userwine.create!(user_id: rand(1..3), wine_id: wines.index(wine) + 1)
+  Userwine.create!(user_id: rand(1..6), wine_id: wines.index(wine) + 1)
 end
