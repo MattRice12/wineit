@@ -1,7 +1,7 @@
 class WinesController < ApplicationController
   def index
     render template: 'wines/index.html.erb', locals: {
-      wines: Wine.all
+      wines: Wine.all,
     }
   end
 

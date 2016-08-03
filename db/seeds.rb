@@ -11,6 +11,10 @@
 
 wines = ["Riesling", "Gewürztraminer", "Chardonnay", "Sauvignon blanc", "Shiraz", "Merlot", "Cabernet Sauvignon", "Pinot Noir"]
 
+User.create!(username: "matt1", password: "password")
+User.create!(username: "jane1", password: "password")
+User.create!(username: "lyanna1", password: "password")
+
 wines.each do |wine|
-  Wine.create!(name: wine)
+  Wine.create!(name: wine, user_id: rand(1..3))
 end

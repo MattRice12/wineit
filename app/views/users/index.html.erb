@@ -5,7 +5,10 @@
   <ol class="col s12 main-block">
     <% users.each do |user| %>
     <li class="blocky-block">
-      <div class="name-index"><%= link_to user.username, user %></div>
+      <div class="name-index"><%= link_to user.username, user %> </div>
+      <% user.wines.each do |wine| %>
+        <%= wine.name %>
+      <% end %>
       <small class="edit-delete-block">
         <small><%= link_to "Edit", user, class: "waves-effect waves-light btn edit-btn", method: :put  %></small>
         <small><%= link_to "Delete", user, class: "waves-effect waves-light btn del-btn", method: :delete  %></small>

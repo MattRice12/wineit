@@ -4,6 +4,9 @@
       <h3 class="name-show"><%= "#{user.username} "%></h3>
       <small class="edit-delete-block">
         <small><%= link_to "Edit", user, class: "waves-effect waves-light edit-btn", method: :put  %></small>
+        <% user.wines.each do |wine| %>
+          <%= wine.name %>
+        <% end %>
         <small><%= link_to "Delete", user, class: "waves-effect waves-light del-btn", method: :delete  %></small>
       </small>
     </div>

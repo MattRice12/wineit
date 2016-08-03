@@ -6,8 +6,8 @@
     <% wines.each do |wine| %>
     <div class="blocky-block">
       <div class="name-index"><%= link_to "#{wine.name}", wine %></div>
-      <div>
-        <%= link_to "favorite", userwines_path(user_id: user.id), class: "favorite btn", remote: true, method: :post%>
+      <div class="favorite btn">
+        <%= link_to "favorite", userwines_path(user_id: wine.id), method: :post%>
       </div>
       <small class="edit-delete-block">
         <small><%= link_to "Edit", wine, class: "waves-effect waves-light btn edit-btn", method: :put  %></small>
