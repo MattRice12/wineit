@@ -6,8 +6,12 @@
   background: #EBCFC6;
   width: 150px;
   padding: .2%;
+  color: white;
   &:hover {
     background: #914B49;
+  }
+  a {
+    color: white;
   }
 }
 
@@ -142,6 +146,7 @@
     }
   }
 }
+
 
 
 /*********** SHOW ***********/

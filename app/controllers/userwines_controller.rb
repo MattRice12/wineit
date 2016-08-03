@@ -7,5 +7,7 @@ class UserwinesController < ApplicationController
   end
 
   def destroy
+    # favorite = Userwine.where(wine_id: params[:wine_id], user_id: session[:user_id])
+    # favorite.destroy
   end
 end

@@ -10,9 +10,10 @@ Rails.application.routes.draw do
   post '/users' => 'users#create'
 
   resources :users do
-    post 'userwines' => "users#userwines", on: :member
-    delete 'userwines' => "users#userwines", on: :member
+    post '/userwines' => "users#userwines", on: :member
   end
+
+  delete '/userwines' => "userwines#destroy"
 
   get 'sessions/sign_in', as: 'sign_in'
   delete 'sessions/sign_out', as: 'sign_out'

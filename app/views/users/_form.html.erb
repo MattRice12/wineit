@@ -5,7 +5,8 @@
   Username: <%= f.text_field :username %>
   Password: <%= f.password_field :password %>
   Password Confirmation: <%= f.password_field :password_confirmation %>
-  <%= f.submit "Submit" %>
+
+    <%= f.submit "Submit", class: "btn" %>
 
   <div class="back btn">
     <%= link_to "back", root_path %>
