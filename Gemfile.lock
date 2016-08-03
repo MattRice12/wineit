@@ -176,7 +176,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bcrypt
+  bcrypt (~> 3.1.7)
   bulma-rails (~> 0.0.28)
   byebug
   coffee-rails (~> 4.2)

@@ -7,13 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-users = %w(Matt Rob Kate Ahkeem Dane Justin Karly Jess Bob Bill John Jim Jake January Carl Karl Ken Kyle Derrick)
+%w(Matt Rob Kate Ahkeem Dane Justin Karly Jess Bob Bill John Jim Jake January Carl Karl Ken Kyle Derrick)
 
 wines = ["Riesling", "Gewürztraminer", "Chardonnay", "Sauvignon blanc", "Shiraz", "Merlot", "Cabernet Sauvignon", "Pinot Noir"]
-
-users.each do |name|
-  User.create!(username: "#{name}1", password_digest: "password")
-end
 
 wines.each do |wine|
   Wine.create!(name: wine)

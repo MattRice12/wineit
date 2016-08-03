@@ -1,20 +1,12 @@
-<div class="row new-post">
-  <h2 class="new-post-title"><%= form_title %></h2>
-</div>
+<!-- app/views/users/new.html.erb -->
 
-<%= form_for(user) do |f| %>
+<h1>Signup!</h1>
 
-  <div class="text-field"><label>Username: </label>
-    <%= f.label :username %>
-    <%= f.text_field :username %>
-  </div>
+<%= form_for :user, url: '/users' do |f| %>
 
-  <div class="password-field"><label>Password: </label>
-    <%= f.password_field :password %>
-  </div>
-
-  <a>
-    <%= f.submit "Create Post", class: 'btn'%>
-  </a>
+  Username: <%= f.text_field :username %>
+  Password: <%= f.password_field :password %>
+  Password Confirmation: <%= f.password_field :password_confirmation %>
+  <%= f.submit "Submit" %>
 
 <% end %>

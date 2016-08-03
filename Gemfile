@@ -50,7 +50,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'pry-rails'
 gem 'faker'
 gem 'kaminari'
-gem 'bcrypt'
+gem 'bcrypt', '~> 3.1.7'
 gem "bulma-rails", "~> 0.0.28"
 group :production do
   gem 'rails_12factor'

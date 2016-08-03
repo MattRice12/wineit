@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  include ActionController::HttpAuthentication::Token::ControllerMethods
 
-  before_action :authenticate_via_token
+  # skip_before_action :authenticate_user!, only: [:index, :show, :new, :edit, :create, :update]
+
 
   def index
     render template: 'users/index.html.erb', locals: {
@@ -28,7 +28,8 @@ class UsersController < ApplicationController
   def create
     user = User.new(user_params)
     if user.save
-      redirect_to root_path
+      session[:user_id] = user.id
+      redirect_to root_path, notice: 'Successfully created an account and signed in!'
     else
       flash[:alert] = "User could not be created due to errors."
       render template: 'users/new.html.erb', locals: {
@@ -63,12 +64,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.requre(:user).permit(:username, :password)
-  end
-
-  def authenticate_via_token
-    authenticate_or_request_with_http_token do |token, _|
-      User.find_by(auth_token: token)
-    end
+    params.require(:user).permit(:username, :password, :password_confirmation)
   end
 end
