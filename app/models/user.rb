@@ -5,5 +5,8 @@ class User < ApplicationRecord
 
   validates :username, uniqueness: true, length: { minimum: 1, maximum: 30 }
 
+  def as_json(_ = nil)
+    super(include: [:userwines])
+  end
 
 end

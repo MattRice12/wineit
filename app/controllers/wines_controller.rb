@@ -6,13 +6,10 @@ class WinesController < ApplicationController
   end
 
   def show
-    if Wine.exists?(id: params.fetch(:id))
-      render template: 'wines/show.html.erb', locals: {
-        wine: Wine.find(params.fetch(:id))
-      }
-    else
-      render html: "Not Found", status: 404
-    end
+    Wine.find_by(id: params.fetch(:id))
+    render template: 'wines/show.html.erb', locals: {
+      wine: Wine.find(params.fetch(:id))
+    }
   end
 
   def new
@@ -35,12 +32,12 @@ class WinesController < ApplicationController
 
   def edit
     render loacls: {
-      wine: Wine.find(id: params.fetch(:id))
+      wine: Wine.find_by(id: params.fetch(:id))
     }
   end
 
   def update
-    wine = Wine.find(id: params.fetch(:id))
+    wine = Wine.find_by(id: params.fetch(:id))
     if wine.update(wine_params)
       redirect_to root_path
     else
@@ -53,7 +50,7 @@ class WinesController < ApplicationController
   end
 
   def destroy
-    wine = Wine.find(id: params.fetch(:id))
+    wine = Wine.find_by(id: params.fetch(:id))
     wine.destroy
     redirect_to root_path, :notice => "This wine has been deleted"
   end

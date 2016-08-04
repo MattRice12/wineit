@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
 
   def index
+    # binding.pry
     render template: 'users/index.html.erb', locals: {
       users: User.all.includes(userwines: [:wine]),
       wines: Wine.includes(:userwines).where(id: :wine_id)
@@ -12,10 +13,9 @@ class UsersController < ApplicationController
 
   def show
     User.find_by(id: params.fetch(:id))
-      # binding.pry
-      render template: 'users/show.html.erb', locals: {
-        user: User.find(params.fetch(:id))
-      }
+    render template: 'users/show.html.erb', locals: {
+      user: User.find(params.fetch(:id))
+    }
   end
 
   def new

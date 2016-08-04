@@ -5,9 +5,7 @@ var User = React.createClass({
         <div className="col s12 block-show">
           <div className="name-block-show">
             <div>
-              <h3 className="name-show">
-                {this.props.user.username}
-              </h3>
+              <h3 className="name-show">{this.props.user.username}</h3>
               <div>
                 <ol>
                   Favorite Wines: {this.props.userwines.map(function (userwine) {

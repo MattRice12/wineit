@@ -1,27 +1,3 @@
 <div class="row index-row">
-  <div>
-    <%= link_to "see wines", wines_path, class: "back btn"%>
-  </div>
-  <ol class="col s12 main-block">
-    <% users.each do |user| %>
-    <li class="blocky-block">
-      <div class="name-index">
-        <div><%= link_to user.username, user %></div>
-        <small>
-          <ol>Favorite Wines:
-            <% user.userwines.each do |userwine| %>
-            <li class="wine-favorite-list">
-              <%= userwine.wine.name %>
-            </li>
-            <% end %>
-          </ol>
-        </small>
-      </div>
-      <small class="edit-delete-block">
-        <small><%= link_to "Edit", edit_user_path(user), class: "waves-effect waves-light btn edit-btn"  %></small>
-        <small><%= link_to "Delete", user, class: "waves-effect waves-light btn del-btn", method: :delete  %></small>
-      </small>
-    </li>
-    <% end %>
-  </ol>
+  <%= react_component("Users", users: users) %>
 </div>
