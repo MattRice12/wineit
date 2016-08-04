@@ -1,0 +1,12 @@
+<h1><%=form_title%></h1>
+
+<%= form_for(wine) do |f| %>
+
+  Wine name: <%= f.text_field :name %>
+
+    <%= f.submit "Submit", class: "btn" %>
+
+  <div class="back btn">
+    <%= link_to "back", root_path %>
+  </div>
+<% end %>

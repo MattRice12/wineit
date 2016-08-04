@@ -6,7 +6,7 @@ var Wine = React.createClass({
           <div className="name-block-show">
             <h3 className="name-show">{this.props.wine.name}</h3>
             <small className="edit-delete-block">
-              <a className="waves-effect waves-light btn edit-btn" rel="nofollow" data-method="put" href={"/wines/" + this.props.wine.id}>Edit</a>
+              <a className="waves-effect waves-light btn edit-btn" rel="nofollow" href={"/wines/" + this.props.wine.id + "/edit"}>Edit</a>
               <a className="waves-effect waves-light del-btn btn" rel="nofollow" data-method="delete" href={"/wines/" + this.props.wine.id}>Delete</a>
             </small>
           </div>

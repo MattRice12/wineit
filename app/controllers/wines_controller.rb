@@ -31,17 +31,17 @@ class WinesController < ApplicationController
   end
 
   def edit
-    render loacls: {
-      wine: Wine.find_by(id: params.fetch(:id))
+    wine = Wine.find_by(id: params.fetch(:id))
+    render locals: {
+      wine: wine
     }
   end
 
   def update
     wine = Wine.find_by(id: params.fetch(:id))
     if wine.update(wine_params)
-      redirect_to root_path
+      redirect_to wines_path, notice: 'Wine was successfully updated'
     else
-      # does bulma have alerts?
       flash[:alert] = "Wine could not be edited due to errors."
       render template: 'wines/edit.html.erb', locals: {
         wine: wine
