@@ -11,15 +11,16 @@ var Wines = React.createClass({
               <div key={wine.id} className="name-index">
                 <div className="blocky-block">
                   <a className="name-index" href={"/wines/" + wine.id}>{wine.name}</a>
-                  <a className="favorite btn" rel="nofollow" href={"/userwines/new"}>Favorite</a>
+                  <a className="favorite btn" rel="nofollow" data-method="post" href={"/userwines/"}>Favorite</a>
+
+                  <small className="edit-delete-block">
+                    <a className="waves-effect waves-light edit-btn btn" rel="nofollow" href={"/wines/" + wine.id + "/edit"}>Edit</a>
+                    <a className="waves-effect waves-light del-btn btn" rel="nofollow" data-method="delete" href={"/wines/" + wine.id}>Delete</a>
+                  </small>
                 </div>
               </div>
             );
           })}
-          <small className="edit-delete-block">
-            <a className="waves-effect waves-light edit-btn btn" rel="nofollow" href={"/wines/" + this.props.wine.id + "/edit"}>Edit</a>
-            <a className="waves-effect waves-light del-btn btn" rel="nofollow" data-method="delete" href={"/wines/" + this.props.wine.id}>Delete</a>
-          </small>
         </div>
       </div>
     );
