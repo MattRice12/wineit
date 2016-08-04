@@ -11,7 +11,6 @@ var User = React.createClass({
               <div>
                 <ol>
                   Favorite Wines: {this.props.userwines.map(function (userwine) {
-                    console.log(userwine);
                     return (<li key={userwine.id}
                     className="wine-favorite-list">
                     {userwine.wine.name}</li>);
