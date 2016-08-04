@@ -12,19 +12,12 @@ var Users = React.createClass({
             <div className="name-index">
               <a href={"/users/" + user.id}>{user.username}</a>
             </div>
-              <small>
-                <ol>Favorite Wines: {this.props.userwines.map(function (userwine) {
-                  return (<li key={userwine.id}
-                          className="wine-favorite-list">{userwine.wine.name}</li>);
-                  }.bind(this))}
-                </ol>
-              </small>
-            <small className="edit-delete-block">
-              <a className="waves-effect waves-light edit-btn btn" rel="nofollow" data-method="put" href={"/users/" + this.props.user.id + "/edit"}>Edit</a>
-              <a className="waves-effect waves-light edit-btn btn" rel="nofollow" data-method="delete" href={"/user/" + this.props.user.id}>Delete</a>
+              <small className="edit-delete-block">
+              <a className="waves-effect waves-light edit-btn btn" rel="nofollow" href={"/users/" + user.id + "/edit"}>Edit</a>
+              <a className="waves-effect waves-light edit-btn btn" rel="nofollow" data-method="delete" href={"/user/" + user.id}>Delete</a>
             </small>
           </li>);
-        }.bind(this))}
+        })}
         </ol>
       </div>
     );

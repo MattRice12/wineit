@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     # binding.pry
     render template: 'users/index.html.erb', locals: {
       users: User.all.includes(userwines: [:wine]),
+      userwines: Userwine.all,
       wines: Wine.includes(:userwines).where(id: :wine_id)
     }
   end

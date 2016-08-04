@@ -7,16 +7,13 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#destroy'
 
   get '/signup' => 'users#new'
-  post '/users' => 'users#create'
 
   resources :users do
     post '/userwines' => "users#userwines", on: :member
-  end
+  end ###?????? What's this do?
 
   delete '/userwines' => "userwines#destroy"
 
-  get 'sessions/sign_in', as: 'sign_in'
-  delete 'sessions/sign_out', as: 'sign_out'
   post 'sessions/authenticate'
 
   root 'wines#index'
