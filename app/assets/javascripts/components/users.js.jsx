@@ -14,7 +14,7 @@ var Users = React.createClass({
             </div>
               <small className="edit-delete-block">
               <a className="waves-effect waves-light edit-btn btn" rel="nofollow" href={"/users/" + user.id + "/edit"}>Edit</a>
-              <a className="waves-effect waves-light edit-btn btn" rel="nofollow" data-method="delete" href={"/user/" + user.id}>Delete</a>
+              <a className="waves-effect waves-light del-btn btn" rel="nofollow" data-method="delete" href={"/user/" + user.id}>Delete</a>
             </small>
           </li>);
         })}
