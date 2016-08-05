@@ -11,14 +11,7 @@ var Wines = React.createClass({
               <div key={wine.id} className="name-index">
                 <div className="blocky-block">
                   <a className="name-index" href={"/wines/" + wine.id}>{wine.name}</a>
-                  <a className="favorite btn" rel="nofollow" data-method="post" href={"/userwines?" + user_id= [user.id]}>Favorite</a>
-
-
-
-<%= link_to "favorite", userwines_path(user_id: wine.id), method: :post%>
-
-
-
+                  <a className="favorite btn" rel="nofollow" data-method="post" href={"/userwines?user_id=" + [wine.id]}>Favorite</a>
                   <small className="edit-delete-block">
                     <a className="waves-effect waves-light edit-btn btn" rel="nofollow" href={"/wines/" + wine.id + "/edit"}>Edit</a>
                     <a className="waves-effect waves-light del-btn btn" rel="nofollow" data-method="delete" href={"/wines/" + wine.id}>Delete</a>
